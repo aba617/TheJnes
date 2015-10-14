@@ -1,6 +1,8 @@
 function nes(){};
 
 nes.cpu = function() { 
+	
+	/*memory*/
 		this.nes = nes;
 	
 		nes.memory = null;
@@ -9,7 +11,6 @@ nes.cpu = function() {
 		nes.REG_Y = null;
 		nes.REG_SP = null;
 		nes.REG_PC = null;
-	
 	
 
 	function loadMemory(){
@@ -28,9 +29,23 @@ nes.cpu = function() {
 			nes.memory[i] = 0xFF;
 		}
 	}
-	
+
 	loadMemory();
 	buildZeroPage();
+		/*Addressing Modes*/
+		nes.addr_acc;
+		nes.addr_impl;
+		nes.addr_imm;
+		nes.addr_abs;
+		nes.addr_zp;
+		nes.addr_rel;
+		nes.addr_absx;
+		nes.addr_absy;
+		nes.addr_zpx;
+		nes.addr_zpy;
+		nes.addr_zpii;
+		nes.addr_zpiiy;
+		/*Op Codes*/
 };
 
 nes.cpu();

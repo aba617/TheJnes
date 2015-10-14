@@ -3,7 +3,7 @@ function nes(){};
 nes.cpu = function() { 
 		this.nes = nes;
 	
-		nes.mem = null;
+		nes.memory = null;
 		nes.REG_ACC = null;
 		nes.REG_X = null;
 		nes.REG_Y = null;
@@ -13,7 +13,7 @@ nes.cpu = function() {
 	
 
 	function loadMemory(){
-		nes.mem = new Array(0x10000);
+		nes.memory = new Array(0x10000);
 	
 		nes.REG_ACC = 0;
 		nes.REG_X = 0;
@@ -23,8 +23,16 @@ nes.cpu = function() {
 		console.log("memory loaded");
 	}
 	
+	function buildZeroPage(){
+		for (var i = 0; i < 0x2000; i++){
+			nes.memory[i] = 0xFF;
+		}
+	}
+	
 	loadMemory();
+	buildZeroPage();
 };
 
 nes.cpu();
 console.log(nes.REG_Y);
+console.log(nes.memory[0x0000]);

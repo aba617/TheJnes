@@ -9,8 +9,14 @@
 
 */
 var nes = function (){
-	console.log("load");
-	module.exports = nes;
+	var CPU = require('./cpu.js');
+	var cpu = new CPU();
+	cpu.init();
+	
+	//cpu.start();
+	//	cpu.loadRegisters();
+	//cpu.functions.start;
 };
 
-nes = new nes;
+nes = new nes();
+//console.log("load");
